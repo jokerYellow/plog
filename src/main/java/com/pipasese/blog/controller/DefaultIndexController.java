@@ -8,20 +8,19 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@Profile("pro")
-public class IndexController {
-
+@Profile("default")
+public class DefaultIndexController {
     @Resource
     private Configuration configuration;
 
     @GetMapping
     public String index() {
-        return "hello,world!" + configuration.getName() + configuration.getPort();
+        return "default:hello,world!" + configuration.getName() + configuration.getPort();
     }
 
     @GetMapping("/banner")
     public String banner() {
-        return configuration.getBanner();
+        return "default:" + configuration.getBanner() + configuration.getBbq();
     }
 
     @GetMapping("/activeProfiles")

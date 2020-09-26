@@ -1,0 +1,10 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">(title)</title>
+</head>
+<body>
+    <li th:each="blog : ${blogs}">
+        <a th:text="${blog.title}" th:href="@{/index/blog(id=${blog.getId()})}"></a>
+    </li>
+</body>
+</html>
